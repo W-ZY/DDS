@@ -1,0 +1,11 @@
+These webpages are coded with Dreamweaver (I use CS6 version, CC version is available in Sudikoff 003) and jQuery UI extensions (already included in CC)
+
+jQuery file path is "external/jquery/jquery.js"
+jQuery UI file is jquery-ui.js
+
+I attach the "jqueryuidemo.html" file for reference if you use them for the first time. (It includes most of the web widgets we need in this assignment) The source code of the file reveals how to use them.
+
+index.html: the entrance page
+main.html: the main menu page
+
+current issues: main.html doesn't parse the parameters (date, meal, location) in its URL from index.html, haven't add CSS file to design the layout.

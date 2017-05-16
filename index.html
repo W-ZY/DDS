@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<title>DDS Entrance Page</title>
+<link href="jquery-ui.css" rel="stylesheet">
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script>
+$( function() {
+//$(document).ready(function() {
+  $( "#datepicker" ).datepicker();
+  $( "#radioset" ).buttonset();
+  var meal = "lunch";
+  meal = $("#radioset:radio:checked").attr('id');
+
+  $("#btnCommons")
+        .text("")
+        .append("<img src=commons.jpg width=140 height=140  />")
+        .button();
+  $("#btnCommons").click(function(){
+	  var mydate = $("#datepicker").val();
+	  var mymeal = $("#radioset :radio:checked + label").text();
+	  //alert("date is " + mydate + " meal is " + mymeal + " location is 53 Commons");
+	  var obj={
+        date:mydate,
+        meal:mymeal,
+        location:"53 Commons"
+      };
+	  //alert(obj.date+"--"+obj.meal+"--"+obj.location);
+	  //window.location.href="main.html?"+parseParam(obj);
+	  window.location.href="main.html?date=" + mydate + "&meal=" + mymeal + "&location=53 Commons";
+  });
+  $( "#dialog" ).dialog({
+  	autoOpen: false,
+	width: 400
+  });
+  $( "#dialog-link" ).click(function( event ) {
+	$( "#dialog" ).dialog( "open" );
+	event.preventDefault();
+  });
+} );
+</script>
+
+</style></head>
+
+<body>
+
+<div class="container">
+  <div class="header">
+    <div align="center"><a href="#"><img src="header.png" alt="Insert Logo Here" name="Insert_logo" width="762" height="98" id="Insert_logo" style="background-color: #009900; display: block;"><a href="#"></a>
+      <!-- end .header -->
+    </div>
+  </div>
+  <div class="content">
+    <h1 align="center">Welcome to DDS</h1>
+    <p align="center">Dartmouth Dining Service (DDS), the website provides you the information of cafe menu and nutritions.</p>
+    <h2 align="center">When and where</h2>
+    <p align="center">Date:	 
+      <input type="text" id="datepicker"></p>
+    <p align="center">Meal: <!--form style="margin-top: 1em;"-->
+	<div id="radioset">
+		<p>
+		  <input type="radio" id="radio1" name="radio">
+		  <label for="radio1">Breakfast</label>
+		  <input type="radio" id="radio2" name="radio" checked="checked">
+		  <label for="radio2">Lunch</label>
+		  <!--input type="radio" id="radio3" name="radio"><label for="radio3">Lunch/Dinner</label-->
+		  <input type="radio" id="radio3" name="radio">
+		  <label for="radio3">Dinner</label>
+	  </p>
+    </p>
+	</div>
+	<div align="center"><p><!--/form-->
+      Location:    
+    </p>
+	<p> 53 commons</p>
+    <p>
+    <button id="btnCommons">&nbsp;</button>
+    </p>
+	<p>
+	<button id="dialog-link" class="ui-button ui-corner-all ui-widget">
+		<span class="ui-icon ui-icon-newwin"></span>Show Map
+	</button>
+	</p>
+    <div id="dialog" title="53 Commons">
+	  <img src= "map-commons.png">
+	</div>
+    <h3>&nbsp;</h3>
+  <!-- end .content --></div></div>
+  <div align="center">
+  <div class="footer">
+    <p><img src="footer.png" width="761" height="96"></p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div></div>
+</body>
+</html>
