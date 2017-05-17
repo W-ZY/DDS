@@ -2,46 +2,7 @@
 <html>
 <head>
 <title>DDS Entrance Page</title>
-<link href="jquery-ui.css" rel="stylesheet">
-<script src="external/jquery/jquery.js"></script>
-<script src="jquery-ui.js"></script>
-<script>
-$( function() {
-//$(document).ready(function() {
-  $( "#datepicker" ).datepicker();
-  $( "#radioset" ).buttonset();
-  var meal = "lunch";
-  meal = $("#radioset:radio:checked").attr('id');
-
-  $("#btnCommons")
-        .text("")
-        .append("<img src=commons.jpg width=140 height=140  />")
-        .button();
-  $("#btnCommons").click(function(){
-	  var mydate = $("#datepicker").val();
-	  var mymeal = $("#radioset :radio:checked + label").text();
-	  //alert("date is " + mydate + " meal is " + mymeal + " location is 53 Commons");
-	  var obj={
-        date:mydate,
-        meal:mymeal,
-        location:"53 Commons"
-      };
-	  //alert(obj.date+"--"+obj.meal+"--"+obj.location);
-	  //window.location.href="main.html?"+parseParam(obj);
-	  window.location.href="main.html?date=" + mydate + "&meal=" + mymeal + "&location=53 Commons";
-  });
-  $( "#dialog" ).dialog({
-  	autoOpen: false,
-	width: 400
-  });
-  $( "#dialog-link" ).click(function( event ) {
-	$( "#dialog" ).dialog( "open" );
-	event.preventDefault();
-  });
-} );
-</script>
-
-</style></head>
+</head>
 
 <body>
 
@@ -73,17 +34,38 @@ $( function() {
 	<div align="center"><p><!--/form-->
       Location:    
     </p>
-	<p> 53 commons</p>
+	<p> 53 commons &emsp Courtyard Cafe &emsp Novack Cafe &emsp Collis Cafe</p>
     <p>
-    <button id="btnCommons">&nbsp;</button>
+    <button id="btnCommons"></button>
+    <button id="btnCourtyard"></button>
+    <button id="btnNovack"></button>
+    <button id="btnCollis"></button>
     </p>
 	<p>
 	<button id="dialog-link" class="ui-button ui-corner-all ui-widget">
 		<span class="ui-icon ui-icon-newwin"></span>Show Map
 	</button>
+    <button id="courtyard-link" class="ui-button ui-corner-all ui-widget">
+		<span class="ui-icon ui-icon-newwin"></span>Show Map
+	</button>
+    <button id="novack-link" class="ui-button ui-corner-all ui-widget">
+		<span class="ui-icon ui-icon-newwin"></span>Show Map
+	</button>
+    <button id="collis-link" class="ui-button ui-corner-all ui-widget">
+		<span class="ui-icon ui-icon-newwin"></span>Show Map
+	</button>
 	</p>
-    <div id="dialog" title="53 Commons">
+    <div id="dialog1" title="53 Commons">
 	  <img src= "map-commons.png">
+	</div>
+    <div id="dialog2" title="Courtyard Cafe">
+	  <img src= "map-courtyard.png">
+	</div>
+    <div id="dialog3" title="Novack Cafe">
+	  <img src= "map-novack.png">
+	</div>
+    <div id="dialog4" title="Collis Cafe">
+	  <img src= "map-collis.png">
 	</div>
     <h3>&nbsp;</h3>
   <!-- end .content --></div></div>
@@ -93,4 +75,118 @@ $( function() {
     <!-- end .footer --></div>
   <!-- end .container --></div></div>
 </body>
+
+<link href="jquery-ui.css" rel="stylesheet">
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script>
+$( function() {
+//$(document).ready(function() {
+  $( "#datepicker" ).datepicker();
+  $( "#radioset" ).buttonset();
+  var meal = "lunch";
+  meal = $("#radioset:radio:checked").attr('id');
+
+  $("#btnCommons")
+        .text("")
+        .append("<img src=commons.jpg width=140 height=140  />")
+        .button();
+  $("#btnCourtyard")
+        .text("")
+        .append("<img src=courtyard.jpg width=140 height=140  />")
+        .button();
+  $("#btnNovack")
+        .text("")
+        .append("<img src=novack.jpg width=140 height=140  />")
+        .button();
+  $("#btnCollis")
+        .text("")
+        .append("<img src=collis.jpg width=140 height=140  />")
+        .button();
+  $("#btnCommons").click(function(){
+	  var mydate = $("#datepicker").val();
+	  var mymeal = $("#radioset :radio:checked + label").text();
+	  //alert("date is " + mydate + " meal is " + mymeal + " location is 53 Commons");
+	  var obj={
+        date:mydate,
+        meal:mymeal,
+        location:"53 Commons"
+      };
+	  //alert(obj.date+"--"+obj.meal+"--"+obj.location);
+	  //window.location.href="main.html?"+parseParam(obj);
+	  window.location.href="main.html?date=" + mydate + "&meal=" + mymeal + "&location=53 Commons";
+  });
+  $("#btnCourtyard").click(function(){
+	  var mydate = $("#datepicker").val();
+	  var mymeal = $("#radioset :radio:checked + label").text();
+	  //alert("date is " + mydate + " meal is " + mymeal + " location is 53 Commons");
+	  var obj={
+        date:mydate,
+        meal:mymeal,
+        location:"Courtyard Cafe"
+      };
+	  //alert(obj.date+"--"+obj.meal+"--"+obj.location);
+	  //window.location.href="main.html?"+parseParam(obj);
+	  window.location.href="main.html?date=" + mydate + "&meal=" + mymeal + "&location=Courtyard Cafe";
+  });
+  $("#btnNovack").click(function(){
+	  var mydate = $("#datepicker").val();
+	  var mymeal = $("#radioset :radio:checked + label").text();
+	  //alert("date is " + mydate + " meal is " + mymeal + " location is 53 Commons");
+	  var obj={
+        date:mydate,
+        meal:mymeal,
+        location:"Novack Cafe"
+      };
+	  //alert(obj.date+"--"+obj.meal+"--"+obj.location);
+	  //window.location.href="main.html?"+parseParam(obj);
+	  window.location.href="main.html?date=" + mydate + "&meal=" + mymeal + "&location=Novack Cafe";
+  });
+  $("#btnCollis").click(function(){
+	  var mydate = $("#datepicker").val();
+	  var mymeal = $("#radioset :radio:checked + label").text();
+	  //alert("date is " + mydate + " meal is " + mymeal + " location is 53 Commons");
+	  var obj={
+        date:mydate,
+        meal:mymeal,
+        location:"Collis Cafe"
+      };
+	  //alert(obj.date+"--"+obj.meal+"--"+obj.location);
+	  //window.location.href="main.html?"+parseParam(obj);
+	  window.location.href="main.html?date=" + mydate + "&meal=" + mymeal + "&location=Collis Cafe";
+  });
+  $( "#dialog1" ).dialog({
+  	autoOpen: false,
+	width: 400
+  });
+  $( "#dialog2" ).dialog({
+  	autoOpen: false,
+	width: 400
+  });
+  $( "#dialog3" ).dialog({
+  	autoOpen: false,
+	width: 400
+  });
+  $( "#dialog4" ).dialog({
+  	autoOpen: false,
+	width: 400
+  });
+  $( "#dialog-link" ).click(function( event ) {
+	$( "#dialog1" ).dialog( "open" );
+	event.preventDefault();
+  });
+  $( "#courtyard-link" ).click(function( event ) {
+	$( "#dialog2" ).dialog( "open" );
+	event.preventDefault();
+  });
+  $( "#novack-link" ).click(function( event ) {
+	$( "#dialog3" ).dialog( "open" );
+	event.preventDefault();
+  });
+  $( "#collis-link" ).click(function( event ) {
+	$( "#dialog4" ).dialog( "open" );
+	event.preventDefault();
+  });
+} );
+</script>
 </html>

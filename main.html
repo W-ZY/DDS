@@ -3,17 +3,167 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>DDS Menu</title>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
 </head>
 
 <body>
+<div class="header">
+    <div align="center"><a href="#"><img src="header.png" alt="Insert Logo Here" name="Insert_logo" width="803" height="100" id="Insert_logo" style="background-color: #009900; display: block;"><a href="#"></a>
+      <!-- end .header -->
+    </div>
+</div>
+<p>
+  <label id="location">Welcome to </label>
+  <label id="date&meal"></label>
+</p>
+<p>
+<label>Ingredient</label>
+<label for="VegeterianButton">Vegeterian</label>
+<input type="checkbox" id="VegeterianButton" />
+<label for="GlutenFreeButton">Gluten Free</label>
+<input type="checkbox" id="GlutenFreeButton" />
+<label for="LocalButton">Local or Regional</label>
+<input type="checkbox" id="LocalButton" />
+<label for="KosherButton">Kosher</label>
+<input type="checkbox" id="KosherButton"/>
+<label for="HalalButton">Halal</label>
+<input type="checkbox" id="HalalButton" />
+<label for="VeganButton">Vegan</label>
+<input type="checkbox" id="VeganButton" />
+</p>
+<p>
+<label>Allergens</label>
+<label for="EggButton">Eggs</label>
+<input type="checkbox" id="EggButton" />
+<label for="FishButton">Fish</label>
+<input type="checkbox" id="FishButton" />
+<label for="DairyButton">Dairy</label>
+<input type="checkbox" id="DairyButton" />
+<label for="TreeNutsButton">Tree Nuts</label>
+<input type="checkbox" id="TreeNutsButton" />
+<label for="PeanutsButton">Peanuts</label>
+<input type="checkbox" id="PeanutsButton" />
+<label for="PorkButton">Pork</label>
+<input type="checkbox" id="PorkButton" />
+<label for="SoyButton">Soy</label>
+<input type="checkbox" id="SoyButton" />
+<label for="ShellfishButton">Shellfish</label>
+<input type="checkbox" id="ShellfishButton" />
+<label for="WheatButton">Wheat</label>
+<input type="checkbox" id="WheatButton" />
+</p>
+<br />
+<p>
+Hint: Double click on one food in the list to see its full nutrition facts
+</p>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">List View</a></li>
+		<li><a href="#tabs-2">Map View</a></li>
+		<li><a href="#tabs-3">Weekly View</a></li>
+	</ul>
+	<div id="tabs-1">This shows lists of today's menus</div>
+	<div id="tabs-2">This shows the layout and menus of the Cafe</div>
+	<div id="tabs-3">This shows the week's menus</div>
+</div>
+<p>
+<label id="selection">You select </label>
+</p>
+<table>
+  <tr>
+    <th>Your Meal</th>
+  </tr>
+  <tr>
+    <td> </td>
+  </tr>
+</table>
+<p>
+<label id="meal">Total calory    fat    protein</label>
+<!--button id="showfull">Show Full</button-->
+<button id="showfull" class="ui-button ui-corner-all ui-widget">
+	<span class="ui-icon ui-icon-newwin"></span>Show Full
+</button>
+<button id="back" class="ui-button ui-corner-all ui-widget">
+	<span class="ui-icon ui-icon-arrowreturnthick-1-w"></span>Back
+</button>
+</p>
+<div id="fullnutrition" title="Nutrition Facts">
+	<!--p>Full nutrition facts table of the meal</p-->
+    <table>
+      <tr>
+        <th>Nutrition</th>
+        <th>Total Amount</th>
+      </tr>
+      <tr>
+        <td>Calory</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Protein</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Fat</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Sodium</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Cholesterol</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Calcium</td>
+        <td>0</td>
+      </tr>
+</div>
 </body>
-
+<link href="jquery-ui.css" rel="stylesheet">
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
 <script>
 
 $(document).ready(function(){
     var obj=GetRequest();
-    alert(obj.date+"--"+obj.meal+"--"+obj.location);
+    //alert(obj.date+"--"+obj.meal+"--"+obj.location);
+	$("#location").append(obj.location + " on " + obj.date + " for " + obj.meal);
 });
+
+$("#VegeterianButton").button()
+$("#GlutenFreeButton").button()
+$("#LocalButton").button()
+$("#KosherButton").button()
+$("#HalalButton").button()
+$("#VeganButton").button()
+$("#EggButton").button()
+$("#FishButton").button()
+$("#DairyButton").button()
+$("#TreeNutsButton").button()
+$("#PeanutsButton").button()
+$("#PorkButton").button()
+$("#SoyButton").button()
+$("#ShellfishButton").button()
+$("#WheatButton").button()
+
+$( "#tabs" ).tabs();
 
 function getUrlParamValue(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -24,7 +174,7 @@ function getUrlParamValue(name) {
 
 function GetRequest() {
    var url = location.search;
-   alert(url);
+   //alert(url);
    var theRequest = new Object();
    if (url.indexOf("?") != -1) {
       var str = url.substr(1);
@@ -35,5 +185,34 @@ function GetRequest() {
    }
    return theRequest;
 }
+
+$(function () {
+	var collection = $(".flag");
+	$.each(collection, function () {
+		$(this).addClass("start");
+	});
+});
+
+function dj(dom) {
+	var collection = $(".flag");
+	$.each(collection, function () {
+		$(this).removeClass("end");
+		$(this).addClass("start");
+	});
+	$(dom).removeClass("start");
+	$(dom).addClass("end");
+}
+
+$( "#fullnutrition" ).dialog({
+  autoOpen: false,
+  width: 300
+});
+$( "#showfull" ).click(function( event ) {
+  $( "#fullnutrition" ).dialog( "open" );
+  event.preventDefault();
+});
+$("#back").click(function(){
+	  window.location.href="index.html";
+  });
 </script>
 </html>
