@@ -1,0 +1,10 @@
+0. Meal,1. Station ID,2. Name,3. CaloriesPerServing,4. ServingSize(g),5. TotalFat(g),6. Cholesterol(mg),7. Sodium(mg),8. Potassium(mg),9. Carbohydrate(g),10. Protein(g),11. Vegetarian,12. Gluten Free,13. Kosher,14. Halal,15. Vegan,16. Eggs,17. Fish,18. Dairy,19. Tree Nuts,20. Peanuts,21. Pork,22. Soy,23. Shellfish,24. Wheat
+1,S2,Scrambled Eggs,110,90,10,20,310,560,0,7,0,0,1,1,1,0,1,1,1,1,1,1,1,1
+1,S2,Scrambled Egg Whites,60,90,5,10,190,180,0,12,0,0,1,1,1,0,1,1,1,1,1,1,1,1
+1,S2,Tofu Breakfast Scramble,130,70,5,30,240,100,8,7,0,0,1,1,1,1,1,1,1,1,1,0,1,1
+1,S2,French Dipped Waffles,330,165,12,195,670,200,45,11,0,0,1,1,0,1,1,1,1,1,1,1,1,0
+1,S2,Tater Tots,200,150,18,150,500,200,25,3,0,0,1,1,1,1,1,1,1,1,1,0,1,1
+1,S2,Bacon,110,23,10,20,310,560,0,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+1,S8,Choc Chip Scone,70,60,10,5,200,300,0,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+1,S8,Lemon Danish,110,50,15,5,250,200,0,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+1,S8,Granola Cereal,120,84,12,10,300,300,0,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1

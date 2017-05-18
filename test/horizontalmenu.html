@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'>jQuery Menu - Horizontal Menu Sample</title>
+    
+    <link rel="stylesheet" href="jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    
+    <script type="text/javascript" src="jqxcore.js"></script>
+    <script type="text/javascript" src="jqxmenu.js"></script>
+    <script type="text/javascript" src="jqxtooltip.js"></script>
+    <script type="text/javascript" src="jqxcheckbox.js"></script>
+    <script type="text/javascript" src="jqxlistbox.js"></script>
+    <script src="jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+</head>
+<body>
+    <div id='content'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // Create a jqxMenu
+                $("#jqxMenu").jqxMenu({ width: 600, height: 30});
+				var items = $("[data-tooltip]");
+    			for (var i = 0; i < items.length; i++) {
+      				var liElement = $(items[i]).parent();
+      				var content = $(items[i]).attr("data-tooltip");
+      				liElement.jqxTooltip({
+        				content: content
+      				});
+    			}
+				$( "#A" ).jqxTooltip({ content: '<img src="53commons.jpg" />', position: 'top' });
+				$( "#Psvilion" ).jqxTooltip({ content: '<img src="station/Slide1-pavilion.jpg" />', position: 'top' });
+				
+				var listSource = [{label: 'Field 1', value: 'name', checked: false}];
+$("#jqxlistbox").jqxListBox({ source: listSource, width: 200, height: 100 });
+            });
+        </script>
+        <p>A</p>
+        <p>A</p>
+        <p>A</p>
+        <p>A</p>
+        <p>A</p>
+        <div id='jqxWidget'>
+            <div id='jqxMenu'>
+                <ul>
+                    <li id="A">A
+                    	
+                        <ul>
+                            <li>
+                            	<div data-tooltip="This is A1">A2</div>
+                            </li>
+                            <li>
+                              	<div data-tooltip="This is A2">A2</div>
+                            </li>
+                            <li>
+                              	<div data-tooltip="This is A3">A3</div>
+                            </li>
+                          </ul>
+                        </li>
+                    <li>About Us
+                        <ul>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Our Vision</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li id="Pavilion">Pavilion
+                        <ul>
+                            <li><a href="#">Entrees</a>
+                                <ul>
+                                    <li><a href="#" data-tooltip="Calory: 16g <br/> Fat: 14g <br/> Protein: 20g">Chicken Veggie Wrap</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Side Dishes</a>
+                                <ul>
+                                    <li><a href="#" data-tooltip="Calory: 12g <br/> Fat: 10g <br/> Protein: 12g">Couscous Salad</a></li>
+                                    <li><a href="#" data-tooltip="Calory: 18g <br/> Fat: 11g <br/> Protein: 15g">Rice & Lentils</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Bakery/Dessert</a>
+                            	<ul>
+                                    <li><a href="#" data-tooltip="Calory: 12g <br/> Fat: 14g <br/> Protein: 20g">Chicken Veggie Wrap</a></li>
+                                </ul>
+                            </li>
+                         </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+$(document).ready(function() {
+    $("#jqxMenu").jqxMenu({
+      width: 450,
+      height: 30
+    });
+
+    var items = $("[data-tooltip]");
+    for (var i = 0; i < items.length; i++) {
+      var liElement = $(items[i]).parent();
+      var content = $(items[i]).attr("data-tooltip");
+      liElement.jqxTooltip({
+        content: content
+      });
+    }
+	
+	//$('#jqxMenu').jqxMenu({animationHideDuration: 1000 });
+	$('#jqxMenu').on('itemclick', function (event) {
+    	var element = event.args;
+		var itemtext = $(args).text();
+		var that = this;
+		setTimeout(function () {
+			var dblclick = parseInt($(that).data('double'), 10);
+			if (dblclick > 0) {
+				alert("double click");
+				$(that).data('double', dblclick - 1);
+			} else {
+				alert("click");
+				$("#jqxWidget").jqxListBox('unselectIndex', index);
+			}
+		}, 300);
+    });
+});
+</script>
+</html>

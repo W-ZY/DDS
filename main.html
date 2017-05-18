@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>DDS Menu</title>
+<!-- style for the meal table -->
 <style>
 table {
     font-family: arial, sans-serif;
@@ -28,10 +29,14 @@ tr:nth-child(even) {
       <!-- end .header -->
     </div>
 </div>
+
+<!-- title with the dining hall name, date and meal time-->
 <p>
   <label id="location">Welcome to </label>
   <label id="date&meal"></label>
 </p>
+
+<!--the tag buttons to toggle on/off-->
 <p>
 <label>Ingredient</label>
 <label for="VegeterianButton">Vegeterian</label>
@@ -69,22 +74,56 @@ tr:nth-child(even) {
 <input type="checkbox" id="WheatButton" />
 </p>
 <br />
+
+
+		<div id='jqxWidget'>
+            <div id='jqxMenu'>
+                <ul>
+                    <li id="World View">World View
+                        <ul>
+                            <li>
+                            	<div data-tooltip="This is A1">A2</div>
+                            </li>
+                            <li>
+                              	<div data-tooltip="This is A2">A2</div>
+                            </li>
+                            <li>
+                              	<div data-tooltip="This is A3">A3</div>
+                            </li>
+                          </ul>
+                        </li>
+                    <li>About Us
+                        <ul>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Our Vision</a></li>
+                        </ul>
+                    </li>
+                    <li>Products
+                        <ul>
+                            <li><a href="#">New</a>
+                                <ul>
+                                    <li><a href="#">D1</a></li>
+                                    <li><a href="#">Private Use</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Used</a>
+                                <ul>
+                                    <li><a href="#">Corporate Use</a></li>
+                                    <li><a href="#">Private Use</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Featured</a></li>
+                         </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
 <p>
 Hint: Double click on one food in the list to see its full nutrition facts
 </p>
-<div id="tabs">
-	<ul>
-		<li><a href="#tabs-1">List View</a></li>
-		<li><a href="#tabs-2">Map View</a></li>
-		<li><a href="#tabs-3">Weekly View</a></li>
-	</ul>
-	<div id="tabs-1">This shows lists of today's menus</div>
-	<div id="tabs-2">This shows the layout and menus of the Cafe</div>
-	<div id="tabs-3">This shows the week's menus</div>
-</div>
-<p>
-<label id="selection">You select </label>
-</p>
+
 <table>
   <tr>
     <th>Your Meal</th>
@@ -103,6 +142,7 @@ Hint: Double click on one food in the list to see its full nutrition facts
 	<span class="ui-icon ui-icon-arrowreturnthick-1-w"></span>Back
 </button>
 </p>
+
 <div id="fullnutrition" title="Nutrition Facts">
 	<!--p>Full nutrition facts table of the meal</p-->
     <table>
@@ -136,17 +176,27 @@ Hint: Double click on one food in the list to see its full nutrition facts
       </tr>
 </div>
 </body>
-<link href="jquery-ui.css" rel="stylesheet">
-<script src="external/jquery/jquery.js"></script>
-<script src="jquery-ui.js"></script>
-<script>
 
+<link href="jquery-ui.css" rel="stylesheet">
+<link rel="stylesheet" href="jqx/jqx.base.css" type="text/css" />
+<!--script type="text/javascript" src="jquery-1.11.1.min.js"></script-->
+<script type="text/javascript" src="jqx/jqxcore.js"></script>
+<script type="text/javascript" src="jqx/jqxmenu.js"></script>
+<script type="text/javascript" src="jqx/jqxtooltip.js"></script>
+<script type="text/javascript" src="jqx/jqxcheckbox.js"></script>
+<script type="text/javascript" src="jqx/jqxlistbox.js"></script>
+<!--script src="external/jquery/jquery.js"></script-->
+<script src="jquery-ui.js"></script>
+
+<script>
+// change the title with dining hall name, date and meal time
 $(document).ready(function(){
     var obj=GetRequest();
     //alert(obj.date+"--"+obj.meal+"--"+obj.location);
 	$("#location").append(obj.location + " on " + obj.date + " for " + obj.meal);
 });
 
+//add tags (they are buttons)
 $("#VegeterianButton").button()
 $("#GlutenFreeButton").button()
 $("#LocalButton").button()
@@ -165,12 +215,18 @@ $("#WheatButton").button()
 
 $( "#tabs" ).tabs();
 
+$( "#menu" ).menu();
+
+//$( "#accordion" ).accordion();
+
+/*
 function getUrlParamValue(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
     if (r != null) return decodeURIComponent(r[2]);
     return null;
 }
+*/
 
 function GetRequest() {
    var url = location.search;
@@ -186,6 +242,7 @@ function GetRequest() {
    return theRequest;
 }
 
+// below are two functions to toggle tag buttons on/off to indicate integredient and allergens
 $(function () {
 	var collection = $(".flag");
 	$.each(collection, function () {
@@ -203,16 +260,54 @@ function dj(dom) {
 	$(dom).addClass("end");
 }
 
+// the dialog for meal's full nutritions
 $( "#fullnutrition" ).dialog({
   autoOpen: false,
   width: 300
 });
+
+// function to show full nutritions of the meal with a dialog
 $( "#showfull" ).click(function( event ) {
   $( "#fullnutrition" ).dialog( "open" );
   event.preventDefault();
 });
+
+// back to entrance page
 $("#back").click(function(){
 	  window.location.href="index.html";
   });
+  
+$(document).ready(function() {
+    $("#jqxMenu").jqxMenu({
+      width: 450,
+      height: 30
+    });
+
+    var items = $("[data-tooltip]");
+    for (var i = 0; i < items.length; i++) {
+      var liElement = $(items[i]).parent();
+      var content = $(items[i]).attr("data-tooltip");
+      liElement.jqxTooltip({
+        content: content
+      });
+    }
+	
+	//$('#jqxMenu').jqxMenu({animationHideDuration: 1000 });
+	$('#jqxMenu').on('itemclick', function (event) {
+    	var element = event.args;
+		var itemtext = $(args).text();
+		var that = this;
+		setTimeout(function () {
+			var dblclick = parseInt($(that).data('double'), 10);
+			if (dblclick > 0) {
+				alert("double click");
+				$(that).data('double', dblclick - 1);
+			} else {
+				alert("click");
+				$("#jqxWidget").jqxListBox('unselectIndex', index);
+			}
+		}, 300);
+    });
+});
 </script>
 </html>
