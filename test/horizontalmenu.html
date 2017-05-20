@@ -2,102 +2,235 @@
 <html lang="en">
 <head>
     <title id='Description'>jQuery Menu - Horizontal Menu Sample</title>
-    
-    <link rel="stylesheet" href="jqx.base.css" type="text/css" />
-    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
-    
-    <script type="text/javascript" src="jqxcore.js"></script>
-    <script type="text/javascript" src="jqxmenu.js"></script>
-    <script type="text/javascript" src="jqxtooltip.js"></script>
-    <script type="text/javascript" src="jqxcheckbox.js"></script>
-    <script type="text/javascript" src="jqxlistbox.js"></script>
-    <script src="jquery.js"></script>
-	<script src="jquery-ui.js"></script>
 </head>
+
 <body>
     <div id='content'>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                // Create a jqxMenu
-                $("#jqxMenu").jqxMenu({ width: 600, height: 30});
-				var items = $("[data-tooltip]");
-    			for (var i = 0; i < items.length; i++) {
-      				var liElement = $(items[i]).parent();
-      				var content = $(items[i]).attr("data-tooltip");
-      				liElement.jqxTooltip({
-        				content: content
-      				});
-    			}
-				$( "#A" ).jqxTooltip({ content: '<img src="53commons.jpg" />', position: 'top' });
-				$( "#Psvilion" ).jqxTooltip({ content: '<img src="station/Slide1-pavilion.jpg" />', position: 'top' });
-				
-				var listSource = [{label: 'Field 1', value: 'name', checked: false}];
-$("#jqxlistbox").jqxListBox({ source: listSource, width: 200, height: 100 });
-            });
-        </script>
-        <p>A</p>
-        <p>A</p>
-        <p>A</p>
-        <p>A</p>
-        <p>A</p>
-        <div id='jqxWidget'>
-            <div id='jqxMenu'>
-                <ul>
-                    <li id="A">A
-                    	
-                        <ul>
-                            <li>
-                            	<div data-tooltip="This is A1">A2</div>
-                            </li>
-                            <li>
-                              	<div data-tooltip="This is A2">A2</div>
-                            </li>
-                            <li>
-                              	<div data-tooltip="This is A3">A3</div>
-                            </li>
-                          </ul>
-                        </li>
-                    <li>About Us
-                        <ul>
-                            <li><a href="#">History</a></li>
-                            <li><a href="#">Our Vision</a></li>
+        <!-- title with the dining hall name, date and meal time-->
+        <p>
+          <label id="location">Welcome to </label>
+          <label id="date&meal"></label>
+        </p>
+        
+        <!--the tag buttons to toggle on/off-->
+        <p>
+        <label>Ingredient: </label>
+        <input type="button" value="Vegeterian" id="VegeterianButton" />
+        <input type="button" value="Gluten Free" id="GlutenFreeButton" />
+        <input type="button" value="Local or Regional" id="LocalButton" />
+        <input type="button" value="Kosher" id="KosherButton"/>
+        <input type="button" value="Halal" id="HalalButton" />
+        <input type="button" value="Vegan" id="VeganButton" />
+        </p>
+        
+        <p>
+        <label>Allergens: </label>
+        <input type="button" value="Egg" id="EggButton" />
+        <input type="button" value="Fish" id="FishButton" />
+        <input type="button" value="Dairy" id="DairyButton" />
+        <input type="button" value="TreeNuts" id="TreeNutsButton" />
+        <input type="button" value="Peanuts" id="PeanutsButton" />
+        <input type="button" value="Pork" id="PorkButton" />
+        <input type="button" value="Soy" id="SoyButton" />
+        <input type="button" value="Shellfish" id="ShellfishButton" />
+        <input type="button" value="Wheat" id="WheatButton" />
+        </p>
+
+		<p>
+			Move mouse over one category to see dishes, click on one dish to add it to the meal list below
+		</p>
+
+
+        <div id='jqxMenu'>
+            <ul>
+                <li id="stir-fry">Stir-Fry                  	
+                    <ul>
+                        <li><a href="#" data-tooltip="Calory: 90 <br/> Fat: 1g <br/> Protein: 2g">Brown Rice</a></li>
+                        <li><a href="#" data-tooltip="Calory: 150 <br/> Fat: 4.5g <br/> Protein: 24g">Chicken</a></li>
+                        <li><a href="#" data-tooltip="Calory: 140 <br/> Fat: 0g <br/> Protein: 3g">Teriyaki Sauce</a></li>
+                        <li><a href="#" data-tooltip="Calory: 270 <br/> Fat: 12g <br/> Protein: 0g">Medium Sauce</a></li>
+                        <li><a href="#" data-tooltip="Calory: 100 <br/> Fat: 7g <br/> Protein: 11g">Tofu</a></li>
+                        <li><a href="#" data-tooltip="Calory: 240 <br/> Fat: 0.5g <br/> Protein: 5g">White Rice</a></li>
+                        <li><a href="#" data-tooltip="Calory: 35 <br/> Fat: 0g <br/> Protein: 1g">Vegetables</a></li>
+                    </ul>
+                </li>
+                
+                <li id="pasta">Pasta/Omeletes               	
+                    <ul>
+                        <li><a href="#" data-tooltip="Calory: 250 <br/> Fat: 1g <br/> Protein: 9g">Pasta Ziti</a></li>
+                        <li><a href="#" data-tooltip="Calory: 250 <br/> Fat: 2.5g <br/> Protein: 12g">High Protein Penne Pasta</a></li>
+                        <li><a href="#" data-tooltip="Calory: 190 <br/> Fat: 16g <br/> Protein: 5g">Alfredo Sauce Pasta</a></li>
+                        <li><a href="#" data-tooltip="Calory: 380 <br/> Fat: 37g <br/> Protein: 10g" nutrition-fact="380,37,13,425,125,120,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0">Whole Eggs Omelet</a></li>
+                        <li><a href="#" data-tooltip="Calory: 110 <br/> Fat: 9g <br/> Protein: 7g">Egg Whites Omelet</a></li>
+                        <li><a href="#" data-tooltip="Calory: 290 <br/> Fat: 27g <br/> Protein: 10g" nutrition-fact="290,27,10,425,125,120,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0">Omelet Filling Cheddar</a></li>
+                        <li><a href="#" data-tooltip="Calory: 20 <br/> Fat: 0g <br/> Protein: 1g">Black Bean Omelet</a></li>
+                    </ul>
+                </li>
+                
+                <li id="beverages">Beverages                	
+                    <ul>
+                        <li><a href="#" data-tooltip="Calory: 110 <br/> Fat: 0g <br/> Protein: 0g">Apple Juice</a></li>
+                        <li><a href="#" data-tooltip="Calory: 120 <br/> Fat: 0g <br/> Protein: 0g">Cranberry Juice</a></li>
+                        <li><a href="#" data-tooltip="Calory: 100 <br/> Fat: 0g <br/> Protein: 2g">Orange Juice</a></li>
+                        <li><a href="#" data-tooltip="Calory: 130 <br/> Fat: 0g <br/> Protein: 8g">Chocolate Milk</a></li>
+                        <li><a href="#" data-tooltip="Calory: 120 <br/> Fat: 5g <br/> Protein: 8g">2% Milk</a></li>
+                        <li><a href="#" data-tooltip="Calory: 80 <br/> Fat: 0g <br/> Protein: 8g">Skim Milk</a></li>
+                        <li><a href="#" data-tooltip="Calory: 80 <br/> Fat: 10g <br/> Protein: 18g"></a></li>
+                    </ul>
+                </li>
+                
+                <li id="saladbar">Salad Bar                  	
+                    <ul>
+                        <li><a href="#" data-tooltip="Calory: 270 <br/> Fat: 18g <br/> Protein: 27g">Chicken Salad</a></li>
+                        <li><a href="#" data-tooltip="Calory: 5 <br/> Fat: 0g <br/> Protein: <1g">Grilled Portabella</a></li>
+                        <li><a href="#" data-tooltip="Calory: 25 <br/> Fat: 0g <br/> Protein: <1g">Corn Salad</a></li>
+                        <li><a href="#" data-tooltip="Calory: 20 <br/> Fat: 0g <br/> Protein: 1g">Green Peas Salad</a></li>
+                        <li><a href="#" data-tooltip="Calory: 5 <br/> Fat: 0g <br/> Protein: 0g">Mixed Greens</a></li>
+                        <li><a href="#" data-tooltip="Calory: 10 <br/> Fat: 0g <br/> Protein: <1g">Broccoli Florets</a></li>
+                        <li><a href="#" data-tooltip="Calory: 50 <br/> Fat: 0.5g <br/> Protein: 11g">Tuna Fish</a></li>
                         </ul>
                     </li>
                     
-                    <li id="Pavilion">Pavilion
+                    <li id="sandwichsushi">Sandwich/Sushi
                         <ul>
-                            <li><a href="#">Entrees</a>
-                                <ul>
-                                    <li><a href="#" data-tooltip="Calory: 16g <br/> Fat: 14g <br/> Protein: 20g">Chicken Veggie Wrap</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Side Dishes</a>
-                                <ul>
-                                    <li><a href="#" data-tooltip="Calory: 12g <br/> Fat: 10g <br/> Protein: 12g">Couscous Salad</a></li>
-                                    <li><a href="#" data-tooltip="Calory: 18g <br/> Fat: 11g <br/> Protein: 15g">Rice & Lentils</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Bakery/Dessert</a>
-                            	<ul>
-                                    <li><a href="#" data-tooltip="Calory: 12g <br/> Fat: 14g <br/> Protein: 20g">Chicken Veggie Wrap</a></li>
-                                </ul>
-                            </li>
-                         </ul>
+                            <li><a href="#" data-tooltip="Calory: 290 <br/> Fat: 4.5g <br/> Protein: 22g" nutrition-fact="290,4,22,30,800,15,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0">Turkey WW Sandwich</a></li>
+                            <li><a href="#" data-tooltip="Calory: 320 <br/> Fat: 10g <br/> Protein: 21g">Tuna WW Sandwich</a></li>
+                            <li><a href="#" data-tooltip="Calory: 420 <br/> Fat: 17g <br/> Protein: 32g">NC Chicken Salad WW Sandwich</a></li>
+                            <li><a href="#" data-tooltip="Calory: 320 <br/> Fat: 7g <br/> Protein: 25g">Roast Beef WW Sandwich</a></li>
+                            <li><a href="#" data-tooltip="Calory: 380 <br/> Fat: 12g <br/> Protein: 28g">Ham Swiss WW Sandwich</a></li>
+                        </ul>
                     </li>
                     
+                    <li id="smoothies">Smoothies
+                        <ul>
+                        	<li><a href="#" data-tooltip="Calory: 30 <br/> Fat: 0g <br/> Protein: 0g" nutrition-fact="30,0,0,0,0,130,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0">Banana</a></li>
+                            <li><a href="#" data-tooltip="Calory: 30 <br/> Fat: 0g <br/> Protein: 0g">Blueberries</a></li>
+                            <li><a href="#" data-tooltip="Calory: 35 <br/> Fat: 0g <br/> Protein: 0g"></a>Mango</li>
+                            <li><a href="#" data-tooltip="Calory: 10 <br/> Fat: 0g <br/> Protein: 0g"></a>Peach Slices</li>
+                            <li><a href="#" data-tooltip="Calory: 25 <br/> Fat: 0g <br/> Protein: 0g"></a>Pineapple Chunks</li>
+                            <li><a href="#" data-tooltip="Calory: 90 <br/> Fat: 0g <br/> Protein: 1g"></a>Orange Juice</li>
+                         </ul>
+                    </li>                    
                 </ul>
             </div>
         </div>
     </div>
+    <br>
+    <p>
+	Hint: Double click on one food in the list to see its full nutrition facts
+	</p>
+    
+    <!--div id='meallist'>
+    </div>
+    
+    <div style="font-size: 12px; font-family: Verdana;" id="selectionlog">
+    </div-->
+    
+    <div id='list'></div>
+    
+    <div style="font-size: 12px; font-family: Verdana;" id="log">
+    </div>
+    <p>
+    <label id="meal">Total calory:    fat:    protein:</label>
+    <!--label id="meal">Total calory: 290   fat: 27g   protein: 10g</label-->
+    <!--label id="meal">Total calory: 670   fat: 64g   protein: 13g</label-->
+
+    <input type="button" id="showfull" value="Show Full" width="200"/>
+    <input type="button" id="delete" value="Delete selected" width="200"/>
+    
+    <input type="button" id="back" value="Back" />
+    
+    </p>
+
+	<!--p>Full nutrition facts table of one dish</p-->
+    <div id='jqxwindow' title="Full Nutritions">
+    	<div>
+        	<!-- prefix d stands for "dish"-->
+            <p id="dcalory">calory: 0</p>
+            <p id="dfat">fat: 0g</p>
+            <p id="dprotein">protein: 0g</p>
+            <p id="dcholesterol">cholesterol: 0mg</p>
+            <p id="dsodium">sodium: 0mg</p>
+            <p id="dpotassium">Potassium: 0mg</p>
+        	<input type="button" value="Close" id="close_window" />
+        </div>div>
+	</div>
+    
+    <!--p>Full nutrition facts table of the meal</p-->
+    <div id='fullnutrition' title="Meal Nutritions">
+		<div>
+        	<!-- prefix mt stands for "mealtotal"-->
+            <p id="mtcalory">calory: 0</p>
+            <p id="mtfat">fat: 0g</p>
+            <p id="mtprotein">protein: 0g</p>
+            <p id="mtcholesterol">cholesterol: 0mg</p>
+            <p id="mtsodium">sodium: 0mg</p>
+            <p id="mtpotassium">Potassium: 0mg</p>
+
+        	<input type="button" value="Close" id="button_no" />
+        </div>div>
+	</div>
 </body>
+
+<link rel="stylesheet" href="jqx.base.css" type="text/css" />
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script> 
+<script type="text/javascript" src="jqxcore.js"></script>
+<script type="text/javascript" src="jqxmenu.js"></script>
+<script type="text/javascript" src="jqxtooltip.js"></script>
+<script type="text/javascript" src="jqxcheckbox.js"></script>
+<script type="text/javascript" src="jqxlistbox.js"></script>
+<script type="text/javascript" src="jqxbuttons.js"></script>
+<script type="text/javascript" src="jqxscrollbar.js"></script>
+<script type="text/javascript" src="jqxwindow.js"></script>
+<script src="jquery-ui.js"></script>
 
 <script>
 $(document).ready(function() {
+    var obj=GetRequest();
+    // alert(obj.date+"--"+obj.meal+"--"+obj.location);
+	// change the welcome word
+	$("#location").append(obj.location + " on " + obj.date + " for " + obj.meal);
+	//$("#location").append("Collis Cafe on 05/20/17 for Lunch");
+	
+	// function to retrieve location/data/meal
+	function GetRequest() {
+	   var url = location.search;
+	   //alert(url);
+	   var theRequest = new Object();
+	   if (url.indexOf("?") != -1) {
+		  var str = url.substr(1);
+		  strs = str.split("&");
+		  for(var i = 0; i < strs.length; i ++) {
+			 theRequest[strs[i].split("=")[0]]=decodeURIComponent((strs[i].split("=")[1]));
+		  }
+	   }
+	   return theRequest;
+	}
+	
+	//add tags (they are buttons)
+	$("#VegeterianButton").jqxToggleButton({toggled: false});
+	$("#GlutenFreeButton").jqxToggleButton({toggled: false});
+	$("#LocalButton").jqxToggleButton({toggled: false});
+	$("#KosherButton").jqxToggleButton({toggled: false});
+	$("#HalalButton").jqxToggleButton({toggled: false});
+	$("#VeganButton").jqxToggleButton({toggled: false});
+	$("#EggButton").jqxToggleButton({toggled: false});
+	$("#FishButton").jqxToggleButton({toggled: false});
+	$("#DairyButton").jqxToggleButton({toggled: false});
+	$("#TreeNutsButton").jqxToggleButton({toggled: false});
+	$("#PeanutsButton").jqxToggleButton({toggled: false});
+	$("#PorkButton").jqxToggleButton({toggled: false});
+	$("#SoyButton").jqxToggleButton({toggled: false});
+	$("#ShellfishButton").jqxToggleButton({toggled: false});
+	$("#WheatButton").jqxToggleButton({toggled: false});
+	
+	// add the main menu
     $("#jqxMenu").jqxMenu({
-      width: 450,
+      width: 660,
       height: 30
     });
 
+	// add tooltip
     var items = $("[data-tooltip]");
     for (var i = 0; i < items.length; i++) {
       var liElement = $(items[i]).parent();
@@ -106,11 +239,17 @@ $(document).ready(function() {
         content: content
       });
     }
+	$("#stir-fry").jqxTooltip({content: '<img src="./smap/co/CollisStirFry.jpg" />',position: 'top'});
+	$("#pasta").jqxTooltip({content: '<img src="./smap/co/CollisPasta.jpg" />',position: 'top'});
+	$("#beverages").jqxTooltip({content: '<img src="./smap/co/CollisBeverages.jpg" />',position: 'top'});
+	$("#saladbar").jqxTooltip({content: '<img src="./smap/co/CollisSaladBar.jpg" />',position: 'top'});
+	$("#sandwichsushi").jqxTooltip({content: '<img src="./smap/co/CollisSandwiches.jpg" />',position: 'top'});
+	$("#smoothies").jqxTooltip({content: '<img src="./smap/co/CollisSmoothies.jpg" />',position: 'top'});
 	
-	//$('#jqxMenu').jqxMenu({animationHideDuration: 1000 });
+	// click on the main menu
 	$('#jqxMenu').on('itemclick', function (event) {
     	var element = event.args;
-		var itemtext = $(args).text();
+		var itemtext = event.target.innerHTML;//$(args).text();
 		var that = this;
 		setTimeout(function () {
 			var dblclick = parseInt($(that).data('double'), 10);
@@ -118,11 +257,501 @@ $(document).ready(function() {
 				alert("double click");
 				$(that).data('double', dblclick - 1);
 			} else {
-				alert("click");
-				$("#jqxWidget").jqxListBox('unselectIndex', index);
+				//alert(element.innerHTML);
+				var data = $(event.target).attr("nutrition-fact");
+				if (typeof data != "undefined") {
+					//alert(source.length);
+					var arr = data.split(',');				
+					// extract nutritions
+					totalCalory = parseInt(totalCalory) + parseInt(arr[0]);
+					totalFat = parseInt(totalFat) + parseInt(arr[1]);
+					totalProtein = parseInt(totalProtein) + parseInt(arr[2]);
+					totalCholesterol = parseInt(totalCholesterol) + parseInt(arr[3]);
+					totalSodium  = parseInt(totalSodium) + parseInt(arr[4]);
+					totalPotassium = parseInt(totalPotassium) + parseInt(arr[5]);
+					
+					// record total nutrition for future use
+					$('#meal').text("Total calory: " + totalCalory + " fat: " + totalFat + "g protein: " + totalProtein + "g");
+					$('#dcalory').text("Calory: " + arr[0]);
+					$('#dfat').text("Fat: " + arr[1] + " g");
+					$('#dprotein').text("Protein: " + arr[2] + " g");
+					$('#dcholesterol').text("Cholesterol: " + arr[3] + " mg");
+					$('#dsodium').text("Sodium: " + arr[4] + " mg");
+					$('#dpotassium').text("Potassium: " + arr[5] + " mg");
+					
+					$('#mtcalory').text("Calory: " + totalCalory);
+					$('#mtfat').text("Fat: " + totalFat + " g");
+					$('#mtprotein').text("Protein: " + totalProtein + " g");
+					$('#mtcholesterol').text("Cholesterol: " + totalCholesterol + " mg");
+					$('#mtsodium').text("Sodium: " + totalSodium + " mg");
+					$('#mtpotassium').text("Potassium: " + totalPotassium + " mg");
+
+					/*source.push(
+						{
+							label: itemtext,
+							value: data	
+						}
+					);
+					$("#meallist").jqxListBox('refresh', true);*/
+					//alert(source.length);
+					lsource.push(
+						{
+							label: itemtext,
+							value: data	
+						}
+					);
+					$("#list").jqxListBox('refresh', true);
+					$("#list .jqx-listitem-element").dblclick(function (event) {
+						var title = event.target.innerHTML;
+						$("#jqxwindow").jqxWindow('setTitle', title);
+						$("#jqxwindow").jqxWindow('open');
+					});
+				}
+				//$("#jqxWidget").jqxListBox('unselectIndex', index);
 			}
 		}, 300);
     });
+	
+	//delete selected item
+	/*$("#delete").click(function () {
+		var item = $('#meallist').jqxListBox('getSelectedItem');
+		//var item = $('#list').jqxListBox('getSelectedItem');
+		if (item != null) {
+			var data = item.value;
+			//alert(data);
+			var arr = data.split(',');				
+			// extract nutritions
+			totalCalory = parseInt(totalCalory) - parseInt(arr[0]);
+			totalFat = parseInt(totalFat) - parseInt(arr[1]);
+			totalProtein = parseInt(totalProtein) - parseInt(arr[2]);
+			totalCholesterol = parseInt(totalCholesterol) - parseInt(arr[3]);
+			totalSodium  = parseInt(totalSodium) - parseInt(arr[4]);
+			totalPotassium = parseInt(totalPotassium) - parseInt(arr[5]);
+			
+			$('#meal').text("Total calory: " + totalCalory + " fat: " + totalFat + "g protein: " + totalProtein + "g");
+			
+			$('#mtcalory').text("Calory: " + totalCalory);
+			$('#mtfat').text("Fat: " + totalFat + " g");
+			$('#mtprotein').text("Protein: " + totalProtein + " g");
+			$('#mtcholesterol').text("Cholesterol: " + totalCholesterol + " g");
+			$('#mtsodium').text("Sodium: " + totalSodium + " g");
+			$('#mtpotassium').text("Potassium: " + totalPotassium + " g");
+			//alert(item.index);
+			//alert(source.length);
+			source.splice(item.index, 1);
+			$("#meallist").jqxListBox('refresh', true);
+			$("#selectionlog").children().remove();
+			//alert(source.length);
+			$("#VegeterianButton").jqxToggleButton({toggled: false});
+			$("#GlutenFreeButton").jqxToggleButton({toggled: false});
+			$("#LocalButton").jqxToggleButton({toggled: false});
+			$("#KosherButton").jqxToggleButton({toggled: false});
+			$("#HalalButton").jqxToggleButton({toggled: false});
+			$("#VeganButton").jqxToggleButton({toggled: false});
+			$("#EggButton").jqxToggleButton({toggled: false});
+			$("#FishButton").jqxToggleButton({toggled: false});
+			$("#DairyButton").jqxToggleButton({toggled: false});
+			$("#TreeNutsButton").jqxToggleButton({toggled: false});
+			$("#PeanutsButton").jqxToggleButton({toggled: false});
+			$("#PorkButton").jqxToggleButton({toggled: false});
+			$("#SoyButton").jqxToggleButton({toggled: false});
+			$("#ShellfishButton").jqxToggleButton({toggled: false});
+			$("#WheatButton").jqxToggleButton({toggled: false});
+		}
+	});*/
+		$("#list").bind('select', function (event) {
+	//$("#meallist").click(function(event) {
+		var args = event.args; //alert("select");
+        var item = $('#list').jqxListBox('getItem', args.index);
+		if (event.args) {
+			var item = event.args.item;
+			if (item) {
+				var arr = item.value.split(',');
+				//alert(arr[1]);
+				
+				var valueelement = $("<div></div>");
+				valueelement.text("calory: " + arr[0] + " fat: " + arr[1] + "g protein: " + arr[2] + "g");
+	
+				//$("#selectionlog").children().remove();
+				//$("#selectionlog").append(valueelement);
+				
+				$("#log").children().remove();
+				$("#log").append(valueelement);
+				
+				if (arr[6] > 0) {
+					$("#VegeterianButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#VegeterianButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[7] > 0) {
+					$("#GlutenFreeButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#GlutenFreeButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[8] > 0) {
+					$("#LocalButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#LocalButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[9] > 0) {
+					$("#KosherButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#KosherButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[10] > 0) {
+					$("#HalalButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#HalalButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[11] > 0) {
+					$("#VeganButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#VeganButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[12] > 0) {
+					$("#EggButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#EggButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[13] > 0) {
+					$("#FishButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#FishButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[14] > 0) {
+					$("#DairyButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#DairyButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[15] > 0) {
+					$("#TreeNutsButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#TreeNutsButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[16] > 0) {
+					$("#PeanutsButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#PeanutsButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[17] > 0) {
+					$("#PorkButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#PorkButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[18] > 0) {
+					$("#SoyButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#SoyButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[19] > 0) {
+					$("#ShellfishButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#SHellfishButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[20] > 0) {
+					$("#WheatButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#WheatButton").jqxToggleButton({toggled: false});
+				}
+			}
+		}
+	});
+	$("#delete").click(function () {
+		var item = $('#list').jqxListBox('getSelectedItem');
+		//var item = $('#list').jqxListBox('getSelectedItem');
+		if (item != null) {
+			var data = item.value;
+			//alert(data);
+			var arr = data.split(',');				
+			// extract nutritions
+			totalCalory = parseInt(totalCalory) - parseInt(arr[0]);
+			totalFat = parseInt(totalFat) - parseInt(arr[1]);
+			totalProtein = parseInt(totalProtein) - parseInt(arr[2]);
+			totalCholesterol = parseInt(totalCholesterol) - parseInt(arr[3]);
+			totalSodium  = parseInt(totalSodium) - parseInt(arr[4]);
+			totalPotassium = parseInt(totalPotassium) - parseInt(arr[5]);
+			
+			$('#meal').text("Total calory: " + totalCalory + " fat: " + totalFat + "g protein: " + totalProtein + "g");
+			
+			$('#mtcalory').text("Calory: " + totalCalory);
+			$('#mtfat').text("Fat: " + totalFat + " g");
+			$('#mtprotein').text("Protein: " + totalProtein + " g");
+			$('#mtcholesterol').text("Cholesterol: " + totalCholesterol + " mg");
+			$('#mtsodium').text("Sodium: " + totalSodium + " mg");
+			$('#mtpotassium').text("Potassium: " + totalPotassium + " mg");
+			//alert(item.index);
+			//alert(source.length);
+			// update meal list after deleting
+			lsource.splice(item.index, 1);
+			$("#list").jqxListBox('refresh', true);
+			$("#log").children().remove();
+			$("#list .jqx-listitem-element").dblclick(function (event) {
+				var title = event.target.innerHTML;
+				$("#jqxwindow").jqxWindow('setTitle', title);
+				$("#jqxwindow").jqxWindow('open');
+			});		
+				
+			//alert(source.length);
+			
+			// update tags
+			$("#VegeterianButton").jqxToggleButton({toggled: false});
+			$("#GlutenFreeButton").jqxToggleButton({toggled: false});
+			$("#LocalButton").jqxToggleButton({toggled: false});
+			$("#KosherButton").jqxToggleButton({toggled: false});
+			$("#HalalButton").jqxToggleButton({toggled: false});
+			$("#VeganButton").jqxToggleButton({toggled: false});
+			$("#EggButton").jqxToggleButton({toggled: false});
+			$("#FishButton").jqxToggleButton({toggled: false});
+			$("#DairyButton").jqxToggleButton({toggled: false});
+			$("#TreeNutsButton").jqxToggleButton({toggled: false});
+			$("#PeanutsButton").jqxToggleButton({toggled: false});
+			$("#PorkButton").jqxToggleButton({toggled: false});
+			$("#SoyButton").jqxToggleButton({toggled: false});
+			$("#ShellfishButton").jqxToggleButton({toggled: false});
+			$("#WheatButton").jqxToggleButton({toggled: false});
+		}
+	});
+
+	// the dialog for meal's full nutritions
+	$( "#fullnutrition" ).jqxWindow({ height: 250, width: 320, isModal: true, autoOpen: false });
+	$("#button_no").click(function () {
+		$("#fullnutrition").jqxWindow('close');
+	});
+
+	// your meal list
+	var source = [
+		/*
+		{
+			label: "Omelet Filling Cheddar",
+			value: "290 27 10 1 1 1"
+        },
+		{
+			label: "Whole Eggs Omelet",
+			value: "380 37 13 1 1 1"
+		}
+		*/
+	];
+	
+	var totalCalory = 0;
+	var totalFat = 0;
+	var totalProtein = 0;
+	var totalCholesterol = 0;
+	var totalSodium  = 0;
+	var totalPotassium = 0;
+	
+	// Create a jqxListBox
+	//$("#meallist").jqxListBox({width: 200, source: source, checkboxes: true, height: 250});
+	$("#meallist").jqxListBox({width: 200, source: source, height: 250});
+	//$("#meallist").jqxListBox('checkIndex', 0);
+	
+	/*
+	$("#meallist .jqx-listitem-element").dblclick(function (event) {
+		alert("double");
+		var item = $(event.target).text();
+		alert(item);
+	});
+	*/
+	  
+	$("#meallist .jqx-listitem-element").dblclick(function(e) {
+        alert("double");
+    });
+	/*
+	$("#meallist").on('checkChange', function (event) {
+		var args = event.args;
+		if (args.checked) {
+			$("#Events").text("Checked: " + args.label);
+		}
+		else {
+			$("#Events").text("Unchecked: " + args.label);
+		}
+		var items = $("#listbox").jqxListBox('getCheckedItems');
+		var checkedItems = "";
+		$.each(items, function (index) {
+			if (index < items.length - 1) {
+				checkedItems += this.label + ", ";
+			}
+			else checkedItems += this.label;
+		});
+	});
+	*/
+	
+	/*$("#meallist").bind('select', function (event) {
+	//$("#meallist").click(function(event) {
+		var args = event.args;
+        var item = $('#meallist').jqxListBox('getItem', args.index);
+		if (event.args) {
+			var item = event.args.item;
+			if (item) {
+				var arr = item.value.split(',');
+				//alert(arr[1]);
+				
+				var valueelement = $("<div></div>");
+				valueelement.text("calory: " + arr[0] + " fat: " + arr[1] + "g protein: " + arr[2] + "g");
+				//var labelelement = $("<div></div>");
+				//labelelement.text("Label: " + item.label);
+				$("#selectionlog").children().remove();
+				//$("#selectionlog").append(labelelement);
+				$("#selectionlog").append(valueelement);
+				
+				$("#log").children().remove();
+				//$("#selectionlog").append(labelelement);
+				$("#log").append(valueelement);
+				
+				if (arr[6] > 0) {
+					$("#VegeterianButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#VegeterianButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[7] > 0) {
+					$("#GlutenFreeButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#GlutenFreeButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[8] > 0) {
+					$("#LocalButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#LocalButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[9] > 0) {
+					$("#KosherButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#KosherButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[10] > 0) {
+					$("#HalalButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#HalalButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[11] > 0) {
+					$("#VeganButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#VeganButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[12] > 0) {
+					$("#EggButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#EggButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[13] > 0) {
+					$("#FishButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#FishButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[14] > 0) {
+					$("#DairyButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#DairyButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[15] > 0) {
+					$("#TreeNutsButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#TreeNutsButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[16] > 0) {
+					$("#PeanutsButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#PeanutsButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[17] > 0) {
+					$("#PorkButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#PorkButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[18] > 0) {
+					$("#SoyButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#SoyButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[19] > 0) {
+					$("#ShellfishButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#SHellfishButton").jqxToggleButton({toggled: false});
+				}
+				if (arr[20] > 0) {
+					$("#WheatButton").jqxToggleButton({toggled: true});
+				} else {
+					$("#WheatButton").jqxToggleButton({toggled: false});$("#HalalButton").jqxToggleButton({toggled: true});
+				}
+			}
+		 }
+	  });*/
+
+
+
+
+	var title = "";
+	$("#meallist .jqx-listitem-element").click(function (event) {
+		alert("yes");
+		var label = event.target.innerHTML;
+		title = label;
+		alert("yes");
+		var index = source.indexOf(label);
+		var that = this;
+		setTimeout(function () {
+			var dblclick = parseInt($(that).data('double'), 10);
+			if (dblclick > 0) {
+				$(that).data('double', dblclick - 1);
+			} else {
+				/*
+				var item = event.args.item;
+				if (item) {
+					var caloryelement = $("<div></div>");
+					caloryelement.text("Calory: " + item.calory);
+					var fatelement = $("<div></div>");
+					fatelement.text("Fat: " + item.fat);
+					var proteinelement = $("<div></div>");
+					proteinement.text("Protein: " + item.protein);
+					$("#selectionlog").children().remove();
+					$("#selectionlog").append(caloryelement);
+					$("#selectionlog").append(fatelement);
+					$("#selectionlog").append(proteinement);
+				}
+				*/
+			}
+		}, 300);
+		}).dblclick(function (event) {
+			
+			$(this).data('double', 2);
+			$("#jqxwindow").jqxWindow('setTitle', title);
+			$("#jqxwindow").jqxWindow('open');
+		});
+	});
+
+	// function to show full nutritions of the meal with a dialog
+	$( "#showfull" ).click(function( event ) {
+		$("#fullnutrition").jqxWindow('setTitle', 'Meal nutritions');
+		$("#fullnutrition").jqxWindow('open');
+		//alert('Button is Clicked');
+	});
+
+/*
+$("#showfull").on('click', function (event) {
+	$("#fullnutrition").jqxWindow('open');
+    alert('Button is Clicked');
 });
+*/
+
+	// back to entrance page
+	$("#back").click(function(){
+		  window.location.href="../index.html";
+	});
+	
+		
+	// window to show dish nutritions after double click
+	$("#jqxwindow").jqxWindow({ height: 250, width: 320, isModal: true, autoOpen: false });
+	$("#close_window").click(function () {
+		$("#jqxwindow").jqxWindow('close');
+	});
+	
+	var lsource = [  
+	  //"Espresso"
+	];
+	// Create a jqxListBox
+	$("#list").jqxListBox({source: lsource, width: 200, height: 250});
+	$("#list .jqx-listitem-element").dblclick(function (event) {
+		var title = event.target.innerHTML;
+		$("#jqxwindow").jqxWindow('setTitle', title);
+		$("#jqxwindow").jqxWindow('open');
+	});
 </script>
 </html>
