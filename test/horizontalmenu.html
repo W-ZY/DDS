@@ -6,8 +6,12 @@
 
 <body>
     <div id="content">
+    	<div class="header">
+    <div id="headerImage" align="center"><a href="#"><img src="../header.png" alt="Insert Logo Here" name="Insert_logo" id="Insert_logo" style="background-color: #009900; display: block; background-size: cover; background-repeat: no-repeat; width: 100%; height: 90px"><a href="#"></a>
+      
+    </div>
         <!-- title with the dining hall name, date and meal time-->
-        <p>
+        <p style="font-size:23px">
           <label id="location">Welcome to </label>
           <label id="date&meal"></label>
         </p>
@@ -36,7 +40,7 @@
         <input type="button" value="Wheat" id="WheatButton" />
         </p>
 
-		<p>
+		<p style="font-size:10px">
 			Hint: Move mouse over one category to see dishes, click on one dish to add it to the meal list below
 		</p>
 
@@ -149,8 +153,8 @@
         </div>
     </div>
     <br>
-    <p>
-	Hint: Double click on one food in the list to see its full nutrition facts
+    <p style="font-size:10px">
+	Meal Planner: Double click on one food in the list to see its full nutrition facts
 	</p>
     
     <!--div id='meallist'>
@@ -164,7 +168,7 @@
     <div style="font-size: 12px; font-family: Verdana;" id="log">
     </div>
     <p>
-    <label id="meal">Total calory:    fat:    protein:</label>
+    <label id="meal">Total calories: 0   fat: 0g   protein: 0g</label>
     <!--label id="meal">Total calory: 290   fat: 27g   protein: 10g</label-->
     <!--label id="meal">Total calory: 670   fat: 64g   protein: 13g</label-->
 
@@ -206,6 +210,7 @@
 </body>
 
 <link rel="stylesheet" href="jqx.base.css" type="text/css" />
+<link rel="stylesheet" href="DDSgreen.css" type="text/css" />
 <script type="text/javascript" src="jquery-1.11.1.min.js"></script> 
 <script type="text/javascript" src="jqxcore.js"></script>
 <script type="text/javascript" src="jqxmenu.js"></script>
@@ -241,26 +246,47 @@ $(document).ready(function() {
 	}
 	
 	//add tags (they are buttons)
-	$("#VegeterianButton").jqxToggleButton({toggled: false});
-	$("#GlutenFreeButton").jqxToggleButton({toggled: false});
-	$("#LocalButton").jqxToggleButton({toggled: false});
-	$("#KosherButton").jqxToggleButton({toggled: false});
-	$("#HalalButton").jqxToggleButton({toggled: false});
-	$("#VeganButton").jqxToggleButton({toggled: false});
-	$("#EggButton").jqxToggleButton({toggled: false});
-	$("#FishButton").jqxToggleButton({toggled: false});
-	$("#DairyButton").jqxToggleButton({toggled: false});
-	$("#TreeNutsButton").jqxToggleButton({toggled: false});
-	$("#PeanutsButton").jqxToggleButton({toggled: false});
-	$("#PorkButton").jqxToggleButton({toggled: false});
-	$("#SoyButton").jqxToggleButton({toggled: false});
-	$("#ShellfishButton").jqxToggleButton({toggled: false});
-	$("#WheatButton").jqxToggleButton({toggled: false});
+	/*
+	$("#VegeterianButton").jqxToggleButton({disabled: true});
+	$("#GlutenFreeButton").jqxToggleButton({disabled: true});
+	$("#LocalButton").jqxToggleButton({disabled: true});
+	$("#KosherButton").jqxToggleButton({disabled: true});
+	$("#HalalButton").jqxToggleButton({disabled: true});
+	$("#VeganButton").jqxToggleButton({disabled: true});
+	$("#EggButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#FishButton").jqxToggleButton({disabled: true});
+	$("#DairyButton").jqxToggleButton({disabled: true});
+	$("#TreeNutsButton").jqxToggleButton({disabled: true});
+	$("#PeanutsButton").jqxToggleButton({disabled: true});
+	$("#PorkButton").jqxToggleButton({disabled: true});
+	$("#SoyButton").jqxToggleButton({disabled: true});
+	$("#ShellfishButton").jqxToggleButton({disabled: true});
+	$("#WheatButton").jqxToggleButton({disabled: true});
+	*/
+	
+	///*
+	$("#VegeterianButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#GlutenFreeButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#LocalButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#KosherButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#HalalButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#VeganButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#EggButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#FishButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#DairyButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#TreeNutsButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#PeanutsButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#PorkButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#SoyButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#ShellfishButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	$("#WheatButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+	//*/
 	
 	// add the main menu
     $("#jqxMenu").jqxMenu({
       width: 660,
-      height: 30
+      height: 30,
+	  theme: 'DDSgreen'
     });
 
 	// add tooltip
@@ -275,12 +301,12 @@ $(document).ready(function() {
 	
 	
 	
-	$("#stir-fry").jqxTooltip({content: '<img src="./smap/co/CollisStirFry.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100});
-	$("#pasta").jqxTooltip({content: '<img src="./smap/co/CollisPasta.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100});
-	$("#beverages").jqxTooltip({content: '<img src="./smap/co/CollisBeverages.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100});
-	$("#saladbar").jqxTooltip({content: '<img src="./smap/co/CollisSaladBar.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100});
-	$("#sandwichsushi").jqxTooltip({content: '<img src="./smap/co/CollisSandwiches.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100});
-	$("#smoothies").jqxTooltip({content: '<img src="./smap/co/CollisSmoothies.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100});
+	$("#stir-fry").jqxTooltip({content: '<img src="./smap/co/CollisStirFry.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100, animationHideDelay:23000});
+	$("#pasta").jqxTooltip({content: '<img src="./smap/co/CollisPasta.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100, animationHideDelay:23000});
+	$("#beverages").jqxTooltip({content: '<img src="./smap/co/CollisBeverages.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100, animationHideDelay:23000});
+	$("#saladbar").jqxTooltip({content: '<img src="./smap/co/CollisSaladBar.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100, animationHideDelay:23000});
+	$("#sandwichsushi").jqxTooltip({content: '<img src="./smap/co/CollisSandwiches.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100, animationHideDelay:23000});
+	$("#smoothies").jqxTooltip({content: '<img src="./smap/co/CollisSmoothies.jpg" />', position: 'absolute', absolutePositionX: 800, absolutePositionY: 100, animationHideDelay:23000});
 	
 	// click on the main menu
 	$('#jqxMenu').on('itemclick', function (event) {
@@ -416,7 +442,7 @@ $(document).ready(function() {
 				//alert(arr[1]);
 				
 				var valueelement = $("<div></div>");
-				valueelement.text("Total Calories: " + arr[0] + " fat: " + arr[1] + "g protein: " + arr[2] + "g");
+				valueelement.text("Calories: " + arr[0] + " fat: " + arr[1] + "g protein: " + arr[2] + "g");
 	
 				//$("#selectionlog").children().remove();
 				//$("#selectionlog").append(valueelement);
@@ -425,83 +451,99 @@ $(document).ready(function() {
 				$("#log").append(valueelement);
 				
 				if (arr[6] > 0) {
-					$("#VegeterianButton").jqxToggleButton({toggled: true});
+					$("#VegeterianButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#VegeterianButton").jqxToggleButton({toggled: false});
+					//$("#VegeterianButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[7] > 0) {
-					$("#GlutenFreeButton").jqxToggleButton({toggled: true});
+					$("#GlutenFreeButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#GlutenFreeButton").jqxToggleButton({toggled: false});
+					//$("#GlutenFreeButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[8] > 0) {
-					$("#LocalButton").jqxToggleButton({toggled: true});
+					$("#LocalButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#LocalButton").jqxToggleButton({toggled: false});
+					//$("#LocalButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[9] > 0) {
-					$("#KosherButton").jqxToggleButton({toggled: true});
+					$("#KosherButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#KosherButton").jqxToggleButton({toggled: false});
+					//$("#KosherButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[10] > 0) {
-					$("#HalalButton").jqxToggleButton({toggled: true});
+					$("#HalalButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#HalalButton").jqxToggleButton({toggled: false});
+					//$("#HalalButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[11] > 0) {
-					$("#VeganButton").jqxToggleButton({toggled: true});
+					$("#VeganButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#VeganButton").jqxToggleButton({toggled: false});
+					//$("#VeganButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[12] > 0) {
-					$("#EggButton").jqxToggleButton({toggled: true});
+					$("#EggButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
-					$("#EggButton").jqxToggleButton({toggled: false});
+					$("#EggButton").jqxToggleButton({toggled:false});
+					//$("#EggButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[13] > 0) {
-					$("#FishButton").jqxToggleButton({toggled: true});
+					$("#FishButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#FishButton").jqxToggleButton({toggled: false});
+					//$("#FishButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[14] > 0) {
-					$("#DairyButton").jqxToggleButton({toggled: true});
+					$("#DairyButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#DairyButton").jqxToggleButton({toggled: false});
+					//$("#DairyButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[15] > 0) {
-					$("#TreeNutsButton").jqxToggleButton({toggled: true});
+					$("#TreeNutsButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#TreeNutsButton").jqxToggleButton({toggled: false});
+					//$("#TreeNutsButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[16] > 0) {
-					$("#PeanutsButton").jqxToggleButton({toggled: true});
+					$("#PeanutsButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#PeanutsButton").jqxToggleButton({toggled: false});
+					//$("#PeanutsButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[17] > 0) {
-					$("#PorkButton").jqxToggleButton({toggled: true});
+					$("#PorkButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#PorkButton").jqxToggleButton({toggled: false});
+					//$("#PorkButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[18] > 0) {
-					$("#SoyButton").jqxToggleButton({toggled: true});
+					$("#SoyButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#SoyButton").jqxToggleButton({toggled: false});
+					//$("#SoyButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[19] > 0) {
-					$("#ShellfishButton").jqxToggleButton({toggled: true});
+					$("#ShellfishButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
-					$("#SHellfishButton").jqxToggleButton({toggled: false});
+					$("#ShellfishButton").jqxToggleButton({toggled: false});
+					//$("#ShellfishButton").jqxToggleButton({disabled:true});
 				}
 				if (arr[20] > 0) {
-					$("#WheatButton").jqxToggleButton({toggled: true});
+					$("#WheatButton").jqxToggleButton({disabled:false, toggled: true, theme: 'DDSgreen'});
 				} else {
 					$("#WheatButton").jqxToggleButton({toggled: false});
+					//$("#WheatButton").jqxToggleButton({disabled:true});
 				}
 			}
 		}
 	});
+	$("#delete").jqxButton({ width: '140', height: '25'});
 	$("#delete").click(function () {
 		var item = $('#list').jqxListBox('getSelectedItem');
 		//var item = $('#list').jqxListBox('getSelectedItem');
@@ -530,6 +572,7 @@ $(document).ready(function() {
 			// update meal list after deleting
 			lsource.splice(item.index, 1);
 			$("#list").jqxListBox('refresh', true);
+			$("#list").jqxListBox('unselectIndex', 0);
 			$("#log").children().remove();
 			$("#list .jqx-listitem-element").dblclick(function (event) {
 				var title = event.target.innerHTML;
@@ -540,26 +583,45 @@ $(document).ready(function() {
 			//alert(source.length);
 			
 			// update tags
-			$("#VegeterianButton").jqxToggleButton({toggled: false});
-			$("#GlutenFreeButton").jqxToggleButton({toggled: false});
-			$("#LocalButton").jqxToggleButton({toggled: false});
-			$("#KosherButton").jqxToggleButton({toggled: false});
-			$("#HalalButton").jqxToggleButton({toggled: false});
+			/*
+			$("#VegeterianButton").jqxToggleButton({disabled: true});
+			$("#ClutenFreeButton").jqxToggleButton({toggled: false});
+			$("#GlutenFreeButton").jqxToggleButton({disabled: true});
+			$("#LocalButton").jqxToggleButton({disabled: true});
+			$("#KosherButton").jqxToggleButton({disabled: true});
+			$("#HalalButton").jqxToggleButton({disabled: true});
 			$("#VeganButton").jqxToggleButton({toggled: false});
-			$("#EggButton").jqxToggleButton({toggled: false});
-			$("#FishButton").jqxToggleButton({toggled: false});
-			$("#DairyButton").jqxToggleButton({toggled: false});
-			$("#TreeNutsButton").jqxToggleButton({toggled: false});
-			$("#PeanutsButton").jqxToggleButton({toggled: false});
-			$("#PorkButton").jqxToggleButton({toggled: false});
-			$("#SoyButton").jqxToggleButton({toggled: false});
-			$("#ShellfishButton").jqxToggleButton({toggled: false});
-			$("#WheatButton").jqxToggleButton({toggled: false});
+			$("#VeganButton").jqxToggleButton({disabled: true});
+			$("#EggButton").jqxToggleButton({toggled: true, disabled: true});
+			$("#FishButton").jqxToggleButton({disabled: true});
+			$("#DairyButton").jqxToggleButton({disabled: true});
+			$("#TreeNutsButton").jqxToggleButton({disabled: true});
+			$("#PeanutsButton").jqxToggleButton({disabled: true});
+			$("#PorkButton").jqxToggleButton({disabled: true});
+			$("#SoyButton").jqxToggleButton({disabled: true});
+			$("#ShellfishButton").jqxToggleButton({disabled: true});
+			$("#WheatButton").jqxToggleButton({disabled: true});
+			*/
+			$("#VegeterianButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#GlutenFreeButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#LocalButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#KosherButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#HalalButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#VeganButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#EggButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#FishButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#DairyButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#TreeNutsButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#PeanutsButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#PorkButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#SoyButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#ShellfishButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
+			$("#WheatButton").jqxToggleButton({toggled: false, theme: 'DDSgreen'});
 		}
 	});
 
 	// the dialog for meal's full nutritions
-	$( "#fullnutrition" ).jqxWindow({ height: 250, width: 320, isModal: true, autoOpen: false });
+	$( "#fullnutrition" ).jqxWindow({ height: 250, width: 320, isModal: true, autoOpen: false, theme:"DDSgreen" });
 	$("#button_no").click(function () {
 		$("#fullnutrition").jqxWindow('close');
 	});
@@ -587,7 +649,7 @@ $(document).ready(function() {
 	
 	// Create a jqxListBox
 	//$("#meallist").jqxListBox({width: 200, source: source, checkboxes: true, height: 250});
-	$("#meallist").jqxListBox({width: 200, source: source, height: 250});
+	$("#meallist").jqxListBox({width: 200, source: source, height: 250, theme: 'DDSgreen'});
 	//$("#meallist").jqxListBox('checkIndex', 0);
 	
 	/*
@@ -764,6 +826,7 @@ $(document).ready(function() {
 	});
 
 	// function to show full nutritions of the meal with a dialog
+	$( "#showfull" ).jqxButton({ width: '100', height: '25'});
 	$( "#showfull" ).click(function( event ) {
 		$("#fullnutrition").jqxWindow('setTitle', 'Meal nutritions');
 		$("#fullnutrition").jqxWindow('open');
@@ -778,13 +841,14 @@ $("#showfull").on('click', function (event) {
 */
 
 	// back to entrance page
+	$("#back").jqxButton({ width: '70', height: '25'});
 	$("#back").click(function(){
 		  window.location.href="../index.html";
 	});
 	
 		
 	// window to show dish nutritions after double click
-	$("#jqxwindow").jqxWindow({ height: 250, width: 320, isModal: true, autoOpen: false });
+	$("#jqxwindow").jqxWindow({ height: 250, width: 320, isModal: true, autoOpen: false, theme: 'DDSgreen' });
 	$("#close_window").click(function () {
 		$("#jqxwindow").jqxWindow('close');
 	});

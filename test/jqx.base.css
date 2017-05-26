@@ -884,6 +884,7 @@ button.jqx-button, input[type=button].jqx-button,  input[type=submit].jqx-button
     padding: 0px;
     overflow: hidden;
     text-align: center;
+	background-color: #339606;
 }
 /*applied to the menu when it is vertical. Sets the menu's background*/
 .jqx-menu-vertical

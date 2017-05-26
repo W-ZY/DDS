@@ -2,45 +2,148 @@
 <html>
 <head>
 <title>DDS Entrance Page</title>
-	<style>#radioset{
-		display:block;
-		margin: 0 auto;
-	</style>
+	<style>
 
-}
+
+	#mealLabel{
+		font-size: 18px;
+		font-weight: bold;
+		font-family: sans-serif;
+		
+		/*margin: 0 auto;*/
+		padding-top: 30px;
+		
+	}
+
+	#radioset{
+
+		display:inline-block;
+		margin: 0 ;
+		margin-left: 10px;
+		padding-top: 20px;
+	
+	}
+
+	#headerImage {
+	}
+
+	#dateLabel{
+		font-size: 18px;
+		font-weight: bold;
+		font-family: sans-serif;
+		margin: 0 auto;
+	}
+	.mealButton{
+		display: none;
+	}
+
+	.mealButton label{
+
+		
+    	
+	    
+	    padding: 8px 20px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 14px;
+	    margin: 4px 2px;
+	    cursor: pointer;
+	}
+
+	.mealButton input[type="radio"]:checked+label{
+		background-color: #006400;
+		border: none;
+	}
+
+
+	#dLabels{
+		display: inline-block;
+		/*float: left;*/
+		font-size: 14px;
+		font-weight: bold;
+		font-family: sans-serif;
+		margin-left: 30px;
+		margin-right: 47px;
+		margin-bottom: 0;
+	}
+	#dialog-link{
+		/*float:left;*/
+		/*margin-right: 40px;*/
+
+		margin-left: 20px;
+		margin-right: 27px;
+	}
+
+	#courtyard-link{
+		/*margin-right: 40px;
+		margin-left: 0px;*/
+		/*float:left;
+		margin-left: 100px;*/
+
+		margin-left: 20px;
+		margin-right: 27px;
+	}
+
+	#novack-link{
+		/*margin-right: 40px;*/
+
+		margin-left: 20px;
+		margin-right: 27px;
+	}
+
+	#collis-link{
+
+		margin-left: 20px;
+		margin-right: 27px;
+
+	}
+
+
+
+	</style>
 </head>
 
 <body>
 
 <div class="container">
   <div class="header">
-    <div align="center"><a href="#"><img src="header.png" alt="Insert Logo Here" name="Insert_logo" width="762" height="98" id="Insert_logo" style="background-color: #009900; display: block;"><a href="#"></a>
-      <!-- end .header -->
+    <div id="headerImage" align="center"><a href="#"><img src="header.png" alt="Insert Logo Here" name="Insert_logo" id="Insert_logo" style="background-color: #009900; display: block; background-size: cover; background-repeat: no-repeat; width: 100%; height: 90px"><a href="#"></a>
+      
     </div>
   </div>
   <div class="content">
-    <h1 align="center">Welcome to DDS</h1>
-    <p align="center">Dartmouth Dining Service (DDS), the website provides you the information of cafe menu and nutritions.</p>
-    <h2 align="center">When and where</h2>
-    <p align="center">Date:	 
-      <input type="text" id="datepicker"></p>
-    <p align="center">Meal: <!--form style="margin-top: 1em;"-->
-	<div align="center" id="radioset">
+    
+    <p align="center" style="padding-bottom: 16px;">Dartmouth Dining Service (DDS), the website provides you with nutrition and dining information.</p>
+    <!-- <h2 align="center">When and where</h2> -->
+    <p align="center"  id="dateLabel">Date:	 
+      <input type="text" id="datepicker" style="padding: 7px 20px"></p>
+    <p align="center" style="display: inline-block; float: left; margin-left: 480px;" id="mealLabel">Meal: <!--form style="margin-top: 1em;"-->
+	<div align="center" id="radioset" class="mealButton">
 		<p margin-left="200">
 		  <input type="radio" id="radio1" name="radio">
 		  <label for="radio1">Breakfast</label>
 		  <input type="radio" id="radio2" name="radio" checked="checked">
 		  <label for="radio2">Lunch</label>
-		  <!--input type="radio" id="radio3" name="radio"><label for="radio3">Lunch/Dinner</label-->
+		  
 		  <input type="radio" id="radio3" name="radio">
 		  <label for="radio3">Dinner</label>
 	  </p>
     </p>
 	</div>
-	<div align="center"><p><!--/form-->
+	<div align="center"><!-- <p  class="labels">/form
       Location:    
-    </p>
-	<p> 53 commons  Courtyard Cafe  Novack Cafe  Collis Cafe</p>
+    </p> -->
+	
+	<div align="center">
+		<p id="dLabels"> 53 Commons </p>     
+		<p id="dLabels"> Courtyard Cafe </p>
+		<p id="dLabels"> Novack Cafe </p>
+		<p id="dLabels"> Collis Cafe </p>
+	</div>
+
+
+	
     <p>
     <button id="btnCommons"></button>
     <button id="btnCourtyard"></button>
@@ -75,11 +178,8 @@
 	</div>
     <h3>&nbsp;</h3>
   <!-- end .content --></div></div>
-  <div align="center">
-  <div class="footer">
-    <p><img src="footer.png" width="761" height="96"></p>
-    <!-- end .footer --></div>
-  <!-- end .container --></div></div>
+  
+  </div>
 </body>
 
 <link href="jquery-ui.css" rel="stylesheet">
